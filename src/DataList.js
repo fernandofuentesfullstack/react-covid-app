@@ -1,4 +1,3 @@
-/* eslint-disable react/no-typos */
 import React from "react";
 import PropTypes from 'prop-types';
 import Data from './components/Data'
@@ -12,10 +11,10 @@ const DataList = ({ deaths, confirmed, recovered }) => (
   </FlexContainer>
 );
 
-DataList.PropTypes = {
-    deaths: PropTypes.number.isRequired,
-    confirmed: PropTypes.number.isRequired,
-    recovered: PropTypes.number.isRequired
+DataList.propTypes = {
+    deaths: PropTypes.number,
+    confirmed: PropTypes.number,
+    recovered: PropTypes.number
 }
 
 export default DataList;

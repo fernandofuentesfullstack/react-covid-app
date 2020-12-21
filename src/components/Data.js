@@ -1,4 +1,3 @@
-/* eslint-disable react/no-typos */
 import React from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
@@ -19,9 +18,9 @@ const Data = ({ number, title }) => (
   </div>
 );
 
-Data.PropTypes = {
-  number: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
+Data.propTypes = {
+  number: PropTypes.number,
+  title: PropTypes.string,
 };
 
 export default Data;
