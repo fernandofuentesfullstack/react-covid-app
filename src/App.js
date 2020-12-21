@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import App2 from "./App2";
-import Data from "./Data";
+import DataList from "./DataList";
 
 class App extends Component {
   state = {
@@ -34,12 +33,12 @@ class App extends Component {
     }
     return (
       <>
-        <Data
+        <DataList
           confirmed={this.state.deaths}
           deaths={this.state.confirmed}
           recovered={this.state.recovered}
         />
-        <App2 />
+        
       </>
     );
   }
