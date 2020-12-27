@@ -1,14 +1,14 @@
 import React, { useState, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import MainMenu from './components/UI/MainMenu';
-import { home, spain } from './conf/routes';
-import ThemeContext from './contexts/ThemeContext';
-import { lightTheme, darkTheme } from './styles/theme';
+import MainMenu from "./components/UI/MainMenu";
+import { home, spain } from "./conf/routes";
+import ThemeContext from "./contexts/ThemeContext";
+import { lightTheme, darkTheme } from "./styles/theme";
 import "./App.css";
 
-const Home = lazy(() => import('components/screens/Home'));
-const Spain = lazy(() => import('components/screens/Spain'));
+const Home = lazy(() => import("./components/screens/Home"));
+const Spain = lazy(() => import("./components/screens/Spain"));
 
 const MainContainer = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
@@ -25,17 +25,19 @@ export default function App() {
     <ThemeContext.Provider value={currentTheme}>
       <MainContainer theme={currentTheme}>
         <Router>
-          <div>
-            <MainMenu onClickChangeThemeButton={handleChangeTheme} />
-            <Switch>
-              <Route path={spain()}>
-                <Spain />
-              </Route>
-              <Route path={home()}>
-                <Home />
-              </Route>
-            </Switch>
-          </div>
+          <Suspense fallback={<div>Cargando...</div>}>
+            <div>
+              <MainMenu onClickChangeThemeButton={handleChangeTheme} />
+              <Switch>
+                <Route path={spain()}>
+                  <Spain />
+                </Route>
+                <Route path={home()}>
+                  <Home />
+                </Route>
+              </Switch>
+            </div>
+          </Suspense>
         </Router>
       </MainContainer>
     </ThemeContext.Provider>
